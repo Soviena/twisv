@@ -18,4 +18,5 @@ without installing:
 1. requests
 1. platformdirs
 
-
+### Notice
+You need to create your own bot token from twitter, you can get it here [Twitter API Key](https://developer.twitter.com/en/portal/petition/essential/basic-info)

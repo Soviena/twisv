@@ -73,12 +73,10 @@ def checkUpdate():
     else:
         return False    
 
-logo = r"""
- ___  _ _ _  _  __  _ _ 
+logo = r""" ___  _ _ _  _  __  _ _ 
 |_ _|| | | || |/ _|| | |
  | | | V V || |\_ \| V |
- |_|  \_n_/ |_||__/ \_/ 
-"""
+ |_|  \_n_/ |_||__/ \_/ """
 config = get_config()
 prefix = "https://api.twitter.com/2/tweets/"
 head = {
@@ -91,6 +89,8 @@ else:
     print(logo,end=" ")
     if checkUpdate():
         print("New Update Available!")
+    else:
+        print(versioning.ver)
     print("\nType exit to quit")
     while True:
         tw_link = input("Tweet link : ")
