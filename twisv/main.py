@@ -83,7 +83,7 @@ head = {
     "Authorization": "Bearer "+config['token']
 }
 if len(sys.argv) > 1:
-    get_Tweet(prefix+re.findall(r'\/(\d*)\?', sys.argv[1])[0]+"?expansions=author_id,attachments.media_keys&media.fields=variants,url")
+    get_Tweet(prefix+re.findall(r'\/(\d*)[\?/]?', sys.argv[1])[0]+"?expansions=author_id,attachments.media_keys&media.fields=variants,url")
     quit()
 else:
     print(logo,end=" ")
