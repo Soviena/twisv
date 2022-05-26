@@ -22,7 +22,7 @@ def downloadMedia(link,file_name):
 
 def isExist(folder,file):
     if os.path.isdir(folder):
-        if os.path.isfile('./'+folder+'/'+file):
+        if os.path.isfile(folder+'/'+file):
             return True
         else:
             return False
