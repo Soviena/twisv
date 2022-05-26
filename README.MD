@@ -5,6 +5,13 @@ simple python code to download twitter media (picture and video) to a dedicated 
 without installing:
 `python twisv.py <tweet url>` or just `python twisv.py`
 
+## Demo
+
+
+https://user-images.githubusercontent.com/40521471/170412716-7ba250c5-2920-4d9f-8727-4025bc955559.mp4
+
+
+
 ## Installation
 1. Download latest version from release page or `git clone https://github.com/Soviena/twisv`
 1. `cd twisv`
