@@ -55,6 +55,11 @@ def get_Tweet(api_request):
             downloadMedia(data['includes']['media'][0]['variants'][0]['url'],config['dl_dir']+user+' ('+username+')/'+data['includes']['media'][0]['media_key']+'.mp4')
         else:
             print("Already exist!")
+    elif data['includes']['media'][0]['type'] == 'animated_gif':
+        if not isExist(config['dl_dir']+user+' ('+username+')', data['includes']['media'][0]['media_key']+'.mp4'):
+            downloadMedia(data['includes']['media'][0]['variants'][0]['url'],config['dl_dir']+user+' ('+username+')/'+data['includes']['media'][0]['media_key']+'.mp4')
+        else:
+            print("Already exist!")            
     else:
         for i in data['includes']['media']:
             if not isExist(config['dl_dir']+user+' ('+username+')', i['media_key']+'.jpg'):
