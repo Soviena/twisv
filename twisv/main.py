@@ -1,5 +1,5 @@
 # WIP
-import requests, re, sys, json, os
+import requests, re, sys, json, os, clipboard, time
 from platformdirs import user_config_dir
 from twisv.version import versioning
 def downloadMedia(link,file_name):
@@ -87,9 +87,24 @@ prefix = "https://api.twitter.com/2/tweets/"
 head = {
     "Authorization": "Bearer "+config['token']
 }
+postfix = "?expansions=author_id,attachments.media_keys&media.fields=variants,url"
 if len(sys.argv) > 1:
-    get_Tweet(prefix+re.search(r'status\/(\d{1,})[\?/]?', sys.argv[1]).group(1)+"?expansions=author_id,attachments.media_keys&media.fields=variants,url")
-    quit()
+    if sys.argv[1] == '-clip':
+        print("Detecting clipboard change...")
+        x = ""
+        clipboard.copy(x)
+        while True:
+            y = clipboard.paste()
+            if y != x:
+                x = y
+                try:
+                    get_Tweet(prefix+re.search(r'status\/(\d{1,})[\?/]?', x).group(1)+postfix)
+                except Exception as e:
+                    print("Error occured "+str(e))
+            time.sleep(1)
+    else:
+        get_Tweet(prefix+re.search(r'status\/(\d{1,})[\?/]?', sys.argv[1]).group(1)+postfix)
+        quit()
 else:
     print(logo,end=" ")
     if checkUpdate():
@@ -102,7 +117,7 @@ else:
         if tw_link == 'exit':
             quit()
         else:
-            get_Tweet(prefix+re.search(r'status\/(\d{1,})[\?/]?', tw_link).group(1)+"?expansions=author_id,attachments.media_keys&media.fields=variants,url")
+            get_Tweet(prefix+re.search(r'status\/(\d{1,})[\?/]?', tw_link).group(1)+postfix)
 
 
 
