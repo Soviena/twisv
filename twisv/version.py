@@ -1,4 +1,4 @@
 class versioning:
-    ver="1.0.2.1"
-    ver_int=1021
+    ver="1.0.3.0"
+    ver_int=1030
 
